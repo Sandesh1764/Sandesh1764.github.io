@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #fbfaf7;
+  --bg-elevated: #ffffff;
+  --fg: #1c1c19;
+  --fg-muted: #58584f;
+  --border: #e4e2da;
+  --accent: #1e4d6b;
+  --accent-soft: #d7e4ec;
+  --ring: rgba(30, 77, 107, 0.35);
+}
+
+.dark {
+  --bg: #111110;
+  --bg-elevated: #1c1c19;
+  --fg: #f3f2ee;
+  --fg-muted: #b8b8ab;
+  --border: #2f2f2b;
+  --accent: #7eb6d6;
+  --accent-soft: #1a303c;
+  --ring: rgba(126, 182, 214, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-y {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--fg-muted)];
+  }
+
+  .prose-academic {
+    @apply max-w-prose text-[0.98rem] leading-7 text-[color:var(--fg-muted)];
+  }
+
+  .card-academic {
+    @apply rounded-xl border border-[color:var(--border)] bg-[color:var(--bg-elevated)] p-6 shadow-soft;
+  }
+
+  .link-accent {
+    @apply text-[color:var(--accent)] underline-offset-4 hover:underline;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ring)];
+  }
+
+  .btn-primary {
+    @apply btn bg-[color:var(--accent)] text-white hover:opacity-90 dark:text-ink-950;
+  }
+
+  .btn-secondary {
+    @apply btn border border-[color:var(--border)] bg-[color:var(--bg-elevated)] text-[color:var(--fg)] hover:bg-[color:var(--accent-soft)];
+  }
+
+  .btn-ghost {
+    @apply btn text-[color:var(--fg-muted)] hover:text-[color:var(--fg)];
+  }
+}
